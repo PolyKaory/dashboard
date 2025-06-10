@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #add1ff;
+    color: #000;
+  }
+  
+  .titulo {
+    text-align: center;
+    font-size: 2em;
+    padding: 20px 0;
+    font-family: 'Georgia', serif;
+  }
+  
+  .painel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .bloco {
+    background-color: #e0e0e0;
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  /* Paletas personalizadas */
+  .desenho {
+    background-color: #85abe7;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  
+  .mapa {
+    background-color: #5b85cc;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  
+  .tema {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+  
+  .hora {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .tarefas {
+    grid-column: 4 / 5;
+    grid-row: 1 / 4;
+  }
+  
+  .frase {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  
+  .curiosidade {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+  }
+  
+  .calendario {
+    background-color: #1b2f44;
+    color: white;
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+  }
+  
+  .dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 10px;
+  }
+  
+  .dias span {
+    text-align: center;
+    padding: 4px;
+    background-color: #32465a;
+    border-radius: 4px;
+  }
+  
+  .clima {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+  }
