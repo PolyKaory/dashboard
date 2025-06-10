@@ -12,30 +12,95 @@
 <body>
   <h1 class="titulo">DASHBOARD PESSOAL</h1>
   <main class="painel">
-    <section class="bloco desenho">quadro de desenho</section>
-    <section class="bloco mapa">mapa</section>
-    <section class="bloco tema">tema</section>
-    <section class="bloco hora" id="relogio">hora</section>
-    <section class="bloco tarefas">lista de tarefa</section>
-    <section class="bloco frase">frase do dia</section>
-    <section class="bloco curiosidade">curiosidade</section>
+
+    <!-- Bloco de Desenho Corrigido -->
+    <section class="bloco desenho">
+      <h2>Quadro de Desenho</h2>
+      <div class="ferramentas">
+          <label for="seletorDeCor">Cor:</label>
+          <input type="color" id="seletorDeCor" value="#000000">
+          <button id="btnLimpar">Limpar</button>
+          <button id="btnBaixar">Baixar</button>
+      </div>
+      <!-- MUDANÇA AQUI: Tamanho do canvas reduzido -->
+      <canvas id="quadroDeDesenho" width="400" height="350"></canvas>
+    </section>
+  
+    <section class="bloco mapa">Mapa</section>
+    <section class="bloco tema">
+    <h2>Tema<h2>
+    <button id="themeSwitcher" title="Mudar Tema"></button>
+
+    </section>
+
+    <section class="bloco hora" id="relogio">
+      <div class="clock-container">
+        <div class="analog-clock">
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand min-hand" id="minHand"></div>
+            <div class="hand sec-hand" id="secHand"></div>
+            <div class="center-dot"></div>
+        </div>
+        <div class="digital-clock hidden" id="digitalClock"></div>
+      </div>
+      <button id="switchButton">Ver Digital</button>
+    </section>
+  
+    <section class="bloco tarefas">To-do list</section>
+      <!-- WIDGET LISTA DE TAREFAS -->
+      <h2>To-do list</h2>
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Adicionar nova tarefa..." required autocomplete="off" />
+        <button type="submit">Adicionar</button>
+      </form>
+      <ul id="todo-list">
+        <!-- Tarefas serão inseridas aqui via JS -->
+      </ul>
+      <!-- FIM DO WIDGET -->
+    </section>
+
+    <section class="bloco frase" id="fraseDia">
+      <h2>Conselhos do dia</h2>
+      <div class="tip-content">
+          <div id="conselhos-container">
+            <p id="setup">Clique no botão para ver um conselho</p>
+            <p id="punchline"></p>
+            <p id="loading" style="display: none;">Carregando...</p>
+            <p id="error" style="color: red;"></p>
+            <button id="btnConselho">Ver Conselho</button>
+          </div>  
+    </section>
+    
+
+    <section class="bloco curiosidade" id="curiosidade">
+      <h2>💡 Curiosidade</h2>
+      <p id="fatoCurioso">Carregando...</p>
+      <button id="novaCuriosidade">Nova curiosidade</button>
+    </section>
+    
     <section class="bloco calendario">
       <h2>JUNHO</h2>
       <div class="dias">
-        <!-- calendário estático básico -->
         <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-        <!-- exemplo: começa no sábado (1º de junho 2025) -->
-        <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
-        <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-        <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
-        <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
-        <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
-        <span>30</span>
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+        <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+        <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+        <span>29</span><span>30</span>
       </div>
     </section>
     <section class="bloco clima">previsão do tempo</section>
   </main>
 
-  <script src="scripts/relogio.js"></script>
+  <!-- MUDANÇA AQUI: TODOS os scripts foram movidos para o final do body -->
+  <script src="desenho.js"></script>
+  <script src="relogio.js"></script>
+  <script src="curiosidade.js"></script>
+  <script src="frase.js"></script>
+  <script src="tema.js"></script>
+  <script src="mapa.js"></script>
+  <script src="tarefas.js"></script>
+  <script src="tempo.js"></script>
+  <script src="contador.js"></script>
 </body>
 </html>

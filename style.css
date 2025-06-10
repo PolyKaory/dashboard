@@ -1,96 +1,336 @@
+
+:root {
+  /* TEMA PADRÃO (CLARO) */
+  --cor-fundo: #add1ff;
+  --cor-texto-principal: #000;
+  --cor-bloco: #e0e0e0;
+  --cor-bloco-realce: #85abe7;
+  --cor-bloco-escuro: #1b2f44;
+  --cor-texto-bloco-escuro: white;
+  --cor-borda-cartoon: #0c1b3e;
+  --cor-fundo-cartoon: #1e3a8a;
+  --cor-fundo-frase: #fff3cd;
+  --cor-texto-frase: #333;
+  --cor-borda-frase: #ffc107;
+  --cor-fundo-curiosidade: #ffffffaa;
+  --cor-btn-conselho-fundo: #ffb300;
+  --cor-btn-conselho-borda: #d68900;
+  --cor-btn-conselho-texto: white;
+}
+
+body.theme-dark {
+  /* TEMA ESCURO */
+  --cor-fundo: #121212;
+  --cor-texto-principal: #e0e0e0;
+  --cor-bloco: #1e1e1e;
+  --cor-bloco-realce: #2a2a2a;
+  --cor-bloco-escuro: #bb86fc;
+  --cor-texto-bloco-escuro: #000;
+  --cor-borda-cartoon: #bb86fc;
+  --cor-fundo-cartoon: #3700b3;
+  --cor-fundo-frase: #332940;
+  --cor-texto-frase: #e0e0e0;
+  --cor-borda-frase: #bb86fc;
+  --cor-fundo-curiosidade: #333333aa;
+  --cor-btn-conselho-fundo: #c084fc;
+  --cor-btn-conselho-borda: #a259d9;
+  --cor-btn-conselho-texto: white;
+}
+
+body.theme-forest {
+  /* TEMA FLORESTA */
+  --cor-fundo: #f0f4f0;
+  --cor-texto-principal: #2d3a3a;
+  --cor-bloco: #ffffff;
+  --cor-bloco-realce: #a3b899;
+  --cor-bloco-escuro: #4a5d55;
+  --cor-texto-bloco-escuro: #ffffff;
+  --cor-borda-cartoon: #2d3a3a;
+  --cor-fundo-cartoon: #587d71;
+  --cor-fundo-frase: #e8f0e8;
+  --cor-texto-frase: #2d3a3a;
+  --cor-borda-frase: #587d71;
+  --cor-fundo-curiosidade: #ffffffaa;
+  --cor-btn-conselho-fundo: #f7b6d2; 
+  --cor-btn-conselho-borda: #e48ab7;
+  --cor-btn-conselho-texto: #2d3a3a; 
+}
+
+body.theme-pastel {
+  /* TEMA PASTEL */
+  --cor-fundo: #fdf0f0;
+  --cor-texto-principal: #5e548e;
+  --cor-bloco: #fcedf2;
+  --cor-bloco-realce: #e0b1cb;
+  --cor-bloco-escuro: #9f86c0;
+  --cor-texto-bloco-escuro: #ffffff;
+  --cor-borda-cartoon: #5e548e;
+  --cor-fundo-cartoon: #be95c4;
+  --cor-fundo-frase: #f8e7f0;
+  --cor-texto-frase: #5e548e;
+  --cor-borda-frase: #e0b1cb;
+  --cor-fundo-curiosidade: #ffffffaa;
+  --cor-btn-conselho-fundo: #e75480;
+  --cor-btn-conselho-borda: #b03a5b;
+  --cor-btn-conselho-texto: white;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #add1ff;
-    color: #000;
-  }
-  
-  .titulo {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.titulo {
     text-align: center;
     font-size: 2em;
     padding: 20px 0;
     font-family: 'Georgia', serif;
-  }
+}
   
-  .painel {
+.painel {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, auto);
     gap: 16px;
     padding: 20px;
-  }
-  
-  .bloco {
-    background-color: #e0e0e0;
+}
+
+.bloco {
+    background-color: var(--cor-bloco);
     padding: 16px;
     border-radius: 10px;
-  }
+    transition: background-color 0.3s;
+}
   
-  /* Paletas personalizadas */
-  .desenho {
-    background-color: #85abe7;
+.desenho {
+    background-color: var(--cor-bloco-realce);
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    font-family: 'Comic Neue', cursive;
+}
   
-  .mapa {
-    background-color: #5b85cc;
+.mapa {
+     background-color: var(--cor-bloco-realce);
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-  }
+    font-family: 'Comic Neue', cursive;
+}
   
-  .tema {
+.tema {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-  }
+    background-color: var(--cor-bloco-realce);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    gap: 8px; 
+    font-family: 'Comic Neue', cursive;           
+}
   
-  .hora {
+.hora {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
+    gap: 15px; 
+    background-color: var(--cor-bloco-realce);
+    font-family: 'Comic Neue', cursive; 
+}
   
-  .tarefas {
+.tarefas {
     grid-column: 4 / 5;
     grid-row: 1 / 4;
-  }
+    background-color: var(--cor-bloco-realce);
+    font-family: 'Comic Neue', cursive;
+}
   
-  .frase {
+.frase {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-  }
+    font-family: 'Comic Neue', cursive;
+}
   
-  .curiosidade {
+.curiosidade {
     grid-column: 2 / 4;
     grid-row: 3 / 4;
-  }
+    background-color: var(--cor-bloco-realce);
+     font-family: 'Comic Neue', cursive;
+}
   
-  .calendario {
-    background-color: #1b2f44;
-    color: white;
+.calendario {
+    background-color: var(--cor-bloco-escuro);
+    color: var(--cor-texto-bloco-escuro);
     grid-column: 1 / 4;
     grid-row: 4 / 5;
-  }
+    font-family: 'Comic Neue', cursive;
+}
   
-  .dias {
+.dias {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
     margin-top: 10px;
-  }
+    font-family: 'Comic Neue', cursive;
+}
   
-  .dias span {
+.dias span {
     text-align: center;
     padding: 4px;
-    background-color: #32465a;
+    background-color: rgba(0,0,0,0.15); 
     border-radius: 4px;
-  }
+}
   
-  .clima {
+.clima {
     grid-column: 4 / 5;
     grid-row: 4 / 5;
-  }
+    background-color: var(--cor-bloco-realce);
+    font-family: 'Comic Neue', cursive;
+}
+  
+
+.hora .clock-container {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    border: 6px solid var(--cor-borda-cartoon); 
+    position: relative;
+    box-shadow: 4px 4px 0px var(--cor-borda-cartoon); 
+    font-family: 'Comic Neue', cursive; 
+}
+  
+.hora .analog-clock { width: 100%; height: 100%; position: relative; }
+
+.hora .center-dot {
+    width: 12px;  
+    height: 12px;  
+    background-color: var(--cor-fundo-cartoon);
+    border: 3px solid var(--cor-borda-cartoon); 
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hora .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background-color: var(--cor-fundo-cartoon);
+    border: 2px solid var(--cor-borda-cartoon);
+    border-radius: 10px;
+}
+
+.hora .hour-hand { width: 6px; height: 40px; }
+.hora .min-hand { width: 5px; height: 55px; }
+.hora .sec-hand { width: 2px; height: 60px; background-color: #e53935; /* Vermelho destacado */ }
+
+.hora .digital-clock {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cor-fundo-cartoon);
+    font-size: 2rem; 
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.hora button {
+    padding: 8px 16px; 
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem; 
+    font-weight: bold;
+    color: white;
+    background-color: var(--cor-fundo-cartoon);
+    border: 3px solid var(--cor-borda-cartoon);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s, border-color 0.3s;
+    box-shadow: 3px 3px 0px var(--cor-borda-cartoon); 
+    margin-top: 0;
+}
+
+.hora button:active { transform: translate(3px, 3px); box-shadow: none; }
+.hidden { display: none !important; }
+
+.desenho h4 { text-align: center; margin: 0 0 5px 0; font-family: 'Georgia', serif; }
+.desenho .ferramentas { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px; background-color: rgba(255, 255, 255, 0.5); border-radius: 8px; margin-bottom: 0; }
+.desenho .ferramentas label { font-weight: bold; font-size: 14px; }
+.desenho .ferramentas input[type="color"] { width: 30px; height: 30px; border: 1px solid #ccc; border-radius: 5px; padding: 0; cursor: pointer; }
+.desenho .ferramentas button { padding: 5px 10px;  font-family: 'Comic Neue', cursive; font-size: 12px; font-weight: normal; color: #333; background-color: #fff; border: 1px solid #999; border-radius: 5px; cursor: pointer; box-shadow: none; transition: background-color 0.2s; }
+.desenho .ferramentas button:hover { background-color: #f0f0f0; }
+.desenho .ferramentas button:active { transform: translateY(1px); box-shadow: none; }
+.desenho canvas { width: 100%; aspect-ratio: 1 / 1; max-height: 100%; border: 2px solid #333; background-color: #fff; cursor: crosshair; border-radius: 5px; box-sizing: border-box; }
+
+.curiosidade h2 { font-size: 1.2em; margin-bottom: 10px; }
+.curiosidade p { font-size: 1em; background-color: var(--cor-fundo-curiosidade); padding: 10px; border-radius: 8px; color: var(--cor-texto-principal); margin-bottom: 10px; }
+.curiosidade button { padding: 6px 12px; font-family: 'Comic Neue', cursive; font-size: 0.9rem; font-weight: bold; color: white; background-color: #2c3e50; border: 2px solid #1a252f; border-radius: 8px; cursor: pointer; box-shadow: 2px 2px 0px #1a252f; }
+.curiosidade button:active { transform: translate(2px, 2px); box-shadow: none; }
+
+.frase { background-color: var(--cor-fundo-frase); color: var(--cor-texto-frase); font-family: 'Comic Neue', cursive; }
+.frase h2 { font-size: 1.2em; margin-bottom: 10px; }
+.frase blockquote { font-size: 1.1em; font-style: italic; margin: 10px 0; background-color: rgba(0,0,0,0.03); padding: 10px; border-left: 5px solid var(--cor-borda-frase); border-radius: 5px; }
+.frase cite { display: block; text-align: right; margin-top: 5px; font-size: 0.9em; opacity: 0.8; }
+.frase button { padding: 6px 12px; font-family: 'Comic Neue', cursive; font-size: 0.9rem; font-weight: bold; color: white; background-color: #ffb300; border: 2px solid #d68900; border-radius: 8px; cursor: pointer; box-shadow: 2px 2px 0px #d68900; margin-top: 10px; }
+.frase button:active { transform: translate(2px, 2px); box-shadow: none; }
+
+
+.tema {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#themeSwitcher {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid var(--cor-borda-cartoon);
+  background-color: var(--cor-fundo-cartoon);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: transform 0.2s ease, background-color 0.3s, border-color 0.3s;
+}
+
+#themeSwitcher:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+#themeSwitcher svg {
+  width: 50px;
+  height: 50px;
+  fill: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btnConselho {
+  background-color: var(--cor-fundo-cartoon);
+  color: white;
+  border: 2px solid var(--cor-borda-cartoon);
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--cor-borda-cartoon);
+  padding: 8px 16px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
