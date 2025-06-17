@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. DEFINIÇÕES DOS TEMAS E ÍCONES
     const themes = ['light', 'dark', 'forest', 'pastel'];
     const icons = {
-        light: 'img/sun.png',
-        dark: 'img/moon.png',
-        forest: 'img/forest.png',
-        pastel: 'img/palette.png' 
+        light: '',
+        dark: '',
+        forest: '',
+        pastel: '' 
     };
 
     let currentThemeIndex = 0;

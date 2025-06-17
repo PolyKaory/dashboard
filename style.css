@@ -1,3 +1,6 @@
+/* ======================================================= */
+/* 1. DEFINIÇÃO DOS TEMAS COM VARIÁVEIS CSS */
+/* ======================================================= */
 
 :root {
   /* TEMA PADRÃO (CLARO) */
@@ -13,9 +16,9 @@
   --cor-texto-frase: #333;
   --cor-borda-frase: #ffc107;
   --cor-fundo-curiosidade: #ffffffaa;
-  --cor-btn-conselho-fundo: #ffb300;
-  --cor-btn-conselho-borda: #d68900;
-  --cor-btn-conselho-texto: white;
+  --cor-btn-acao-fundo: #ffb300;
+  --cor-btn-acao-borda: #d68900;
+  --cor-btn-acao-texto: white;
 }
 
 body.theme-dark {
@@ -28,13 +31,13 @@ body.theme-dark {
   --cor-texto-bloco-escuro: #000;
   --cor-borda-cartoon: #bb86fc;
   --cor-fundo-cartoon: #3700b3;
-  --cor-fundo-frase: #332940;
+  --cor-fundo-frase: #6124b2;
   --cor-texto-frase: #e0e0e0;
   --cor-borda-frase: #bb86fc;
   --cor-fundo-curiosidade: #333333aa;
-  --cor-btn-conselho-fundo: #c084fc;
-  --cor-btn-conselho-borda: #a259d9;
-  --cor-btn-conselho-texto: white;
+  --cor-btn-acao-fundo: #c084fc;
+  --cor-btn-acao-borda: #a259d9;
+  --cor-btn-acao-texto: white;
 }
 
 body.theme-forest {
@@ -47,13 +50,13 @@ body.theme-forest {
   --cor-texto-bloco-escuro: #ffffff;
   --cor-borda-cartoon: #2d3a3a;
   --cor-fundo-cartoon: #587d71;
-  --cor-fundo-frase: #e8f0e8;
-  --cor-texto-frase: #2d3a3a;
+  --cor-fundo-frase: #ead388cd;
+  --cor-texto-frase: #3a2e2d;
   --cor-borda-frase: #587d71;
   --cor-fundo-curiosidade: #ffffffaa;
-  --cor-btn-conselho-fundo: #f7b6d2; 
-  --cor-btn-conselho-borda: #e48ab7;
-  --cor-btn-conselho-texto: #2d3a3a; 
+  --cor-btn-acao-fundo: #f7e8b6da; 
+  --cor-btn-acao-borda: #6c7122e5;
+  --cor-btn-acao-texto: #2d3a3a; 
 }
 
 body.theme-pastel {
@@ -66,236 +69,294 @@ body.theme-pastel {
   --cor-texto-bloco-escuro: #ffffff;
   --cor-borda-cartoon: #5e548e;
   --cor-fundo-cartoon: #be95c4;
-  --cor-fundo-frase: #f8e7f0;
-  --cor-texto-frase: #5e548e;
+  --cor-fundo-frase: #afe4e4cc;
+  --cor-texto-frase: #54798e;
   --cor-borda-frase: #e0b1cb;
   --cor-fundo-curiosidade: #ffffffaa;
-  --cor-btn-conselho-fundo: #e75480;
-  --cor-btn-conselho-borda: #b03a5b;
-  --cor-btn-conselho-texto: white;
+  --cor-continer-frase-fundo: #fc82a8;
+  --cor-btn-acao-fundo: #e75480;
+  --cor-btn-acao-borda: #b03a5b;
+  --cor-btn-acao-texto: white;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto-principal);
-    transition: background-color 0.3s, color 0.3s;
+/* ======================================================= */
+/* 2. LAYOUT PRINCIPAL E ESTILOS GERAIS */
+/* ======================================================= */
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .titulo {
-    text-align: center;
-    font-size: 2em;
-    padding: 20px 0;
-    font-family: 'Georgia', serif;
+  text-align: center;
+  font-size: 2em;
+  padding: 20px 0;
+  font-family: 'Georgia', serif;
 }
-  
+
 .painel {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, auto);
-    gap: 16px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 16px;
+  padding: 20px;
+  font-family: 'Comic Neue', cursive;
 }
 
 .bloco {
-    background-color: var(--cor-bloco);
-    padding: 16px;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+  background-color: var(--cor-bloco);
+  padding: 16px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
 }
-  
-.desenho {
-    background-color: var(--cor-bloco-realce);
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    font-family: 'Comic Neue', cursive;
+
+/* MUDANÇA: Cores unificadas para os blocos */
+.desenho, .mapa, .tema, .hora, .tarefas, .curiosidade, .clima {
+  background-color: var(--cor-bloco-realce);
 }
-  
-.mapa {
-     background-color: var(--cor-bloco-realce);
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    font-family: 'Comic Neue', cursive;
-}
-  
-.tema {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    background-color: var(--cor-bloco-realce);
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    justify-content: center;
-    gap: 8px; 
-    font-family: 'Comic Neue', cursive;           
-}
-  
-.hora {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; 
-    background-color: var(--cor-bloco-realce);
-    font-family: 'Comic Neue', cursive; 
-}
-  
-.tarefas {
-    grid-column: 4 / 5;
-    grid-row: 1 / 4;
-    background-color: var(--cor-bloco-realce);
-    font-family: 'Comic Neue', cursive;
-}
-  
+
 .frase {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-    font-family: 'Comic Neue', cursive;
+  background-color: var(--cor-fundo-frase);
+  color: var(--cor-texto-frase);
 }
-  
-.curiosidade {
-    grid-column: 2 / 4;
-    grid-row: 3 / 4;
-    background-color: var(--cor-bloco-realce);
-     font-family: 'Comic Neue', cursive;
-}
-  
+
 .calendario {
-    background-color: var(--cor-bloco-escuro);
-    color: var(--cor-texto-bloco-escuro);
-    grid-column: 1 / 4;
-    grid-row: 4 / 5;
-    font-family: 'Comic Neue', cursive;
+  background-color: var(--cor-bloco-escuro);
+  color: var(--cor-texto-bloco-escuro);
 }
-  
+
+/* Definições de grid dos blocos */
+.desenho {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.mapa { grid-column: 2 / 3; grid-row: 1 / 2; }
+.tema {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.hora {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.tarefas { grid-column: 4 / 5; grid-row: 1 / 4; }
+.frase { grid-column: 1 / 2; grid-row: 3 / 4; }
+.curiosidade { grid-column: 2 / 4; grid-row: 3 / 4; }
+.calendario { grid-column: 1 / 4; grid-row: 4 / 5; }
+.clima { grid-column: 4 / 5; grid-row: 4 / 5; }
+
 .dias {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    margin-top: 10px;
-    font-family: 'Comic Neue', cursive;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 10px;
 }
-  
 .dias span {
-    text-align: center;
-    padding: 4px;
-    background-color: rgba(0,0,0,0.15); 
-    border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 4px;
 }
-  
-.clima {
-    grid-column: 4 / 5;
-    grid-row: 4 / 5;
-    background-color: var(--cor-bloco-realce);
-    font-family: 'Comic Neue', cursive;
-}
-  
 
+/* ======================================================= */
+/* 3. ESTILOS DOS COMPONENTES (Widgets) */
+/* ======================================================= */
+
+/* --- Relógio --- */
 .hora .clock-container {
-    width: 150px;
-    height: 150px;
-    background-color: white;
-    border-radius: 50%;
-    border: 6px solid var(--cor-borda-cartoon); 
-    position: relative;
-    box-shadow: 4px 4px 0px var(--cor-borda-cartoon); 
-    font-family: 'Comic Neue', cursive; 
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 50%;
+  border: 6px solid var(--cor-borda-cartoon);
+  position: relative;
+  box-shadow: 4px 4px 0px var(--cor-borda-cartoon);
 }
-  
-.hora .analog-clock { width: 100%; height: 100%; position: relative; }
-
+.hora .analog-clock {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 .hora .center-dot {
-    width: 12px;  
-    height: 12px;  
-    background-color: var(--cor-fundo-cartoon);
-    border: 3px solid var(--cor-borda-cartoon); 
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+  width: 12px;
+  height: 12px;
+  background-color: var(--cor-fundo-cartoon);
+  border: 3px solid var(--cor-borda-cartoon);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
-
 .hora .hand {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    background-color: var(--cor-fundo-cartoon);
-    border: 2px solid var(--cor-borda-cartoon);
-    border-radius: 10px;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background-color: var(--cor-fundo-cartoon);
+  border: 2px solid var(--cor-borda-cartoon);
+  border-radius: 10px;
 }
-
 .hora .hour-hand { width: 6px; height: 40px; }
 .hora .min-hand { width: 5px; height: 55px; }
-.hora .sec-hand { width: 2px; height: 60px; background-color: #e53935; /* Vermelho destacado */ }
-
+.hora .sec-hand { width: 2px; height: 60px; background-color: #e53935; }
 .hora .digital-clock {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--cor-fundo-cartoon);
-    font-size: 2rem; 
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-}
-
-.hora button {
-    padding: 8px 16px; 
-    font-family: 'Comic Neue', cursive;
-    font-size: 1rem; 
-    font-weight: bold;
-    color: white;
-    background-color: var(--cor-fundo-cartoon);
-    border: 3px solid var(--cor-borda-cartoon);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.1s ease, background-color 0.3s, border-color 0.3s;
-    box-shadow: 3px 3px 0px var(--cor-borda-cartoon); 
-    margin-top: 0;
-}
-
-.hora button:active { transform: translate(3px, 3px); box-shadow: none; }
-.hidden { display: none !important; }
-
-.desenho h4 { text-align: center; margin: 0 0 5px 0; font-family: 'Georgia', serif; }
-.desenho .ferramentas { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px; background-color: rgba(255, 255, 255, 0.5); border-radius: 8px; margin-bottom: 0; }
-.desenho .ferramentas label { font-weight: bold; font-size: 14px; }
-.desenho .ferramentas input[type="color"] { width: 30px; height: 30px; border: 1px solid #ccc; border-radius: 5px; padding: 0; cursor: pointer; }
-.desenho .ferramentas button { padding: 5px 10px;  font-family: 'Comic Neue', cursive; font-size: 12px; font-weight: normal; color: #333; background-color: #fff; border: 1px solid #999; border-radius: 5px; cursor: pointer; box-shadow: none; transition: background-color 0.2s; }
-.desenho .ferramentas button:hover { background-color: #f0f0f0; }
-.desenho .ferramentas button:active { transform: translateY(1px); box-shadow: none; }
-.desenho canvas { width: 100%; aspect-ratio: 1 / 1; max-height: 100%; border: 2px solid #333; background-color: #fff; cursor: crosshair; border-radius: 5px; box-sizing: border-box; }
-
-.curiosidade h2 { font-size: 1.2em; margin-bottom: 10px; }
-.curiosidade p { font-size: 1em; background-color: var(--cor-fundo-curiosidade); padding: 10px; border-radius: 8px; color: var(--cor-texto-principal); margin-bottom: 10px; }
-.curiosidade button { padding: 6px 12px; font-family: 'Comic Neue', cursive; font-size: 0.9rem; font-weight: bold; color: white; background-color: #2c3e50; border: 2px solid #1a252f; border-radius: 8px; cursor: pointer; box-shadow: 2px 2px 0px #1a252f; }
-.curiosidade button:active { transform: translate(2px, 2px); box-shadow: none; }
-
-.frase { background-color: var(--cor-fundo-frase); color: var(--cor-texto-frase); font-family: 'Comic Neue', cursive; }
-.frase h2 { font-size: 1.2em; margin-bottom: 10px; }
-.frase blockquote { font-size: 1.1em; font-style: italic; margin: 10px 0; background-color: rgba(0,0,0,0.03); padding: 10px; border-left: 5px solid var(--cor-borda-frase); border-radius: 5px; }
-.frase cite { display: block; text-align: right; margin-top: 5px; font-size: 0.9em; opacity: 0.8; }
-.frase button { padding: 6px 12px; font-family: 'Comic Neue', cursive; font-size: 0.9rem; font-weight: bold; color: white; background-color: #ffb300; border: 2px solid #d68900; border-radius: 8px; cursor: pointer; box-shadow: 2px 2px 0px #d68900; margin-top: 10px; }
-.frase button:active { transform: translate(2px, 2px); box-shadow: none; }
-
-
-.tema {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--cor-fundo-cartoon);
+  font-size: 2rem;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+.hora button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--cor-fundo-cartoon);
+  border: 3px solid var(--cor-borda-cartoon);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.3s, border-color 0.3s;
+  box-shadow: 3px 3px 0px var(--cor-borda-cartoon);
+  margin-top: 0;
+}
+.hora button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+.hidden { display: none !important; }
+
+/* --- Quadro de Desenho --- */
+.desenho h4 {
+  text-align: center;
+  margin: 0 0 5px 0;
+  font-family: 'Georgia', serif;
+}
+.desenho .ferramentas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  margin-bottom: 0;
+}
+.desenho .ferramentas label {
+  font-weight: bold;
+  font-size: 14px;
+}
+.desenho .ferramentas input[type="color"] {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.desenho .ferramentas button {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color 0.2s;
+}
+.desenho .ferramentas button:hover { background-color: #f0f0f0; }
+.desenho .ferramentas button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.desenho canvas {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 100%;
+  border: 2px solid #333;
+  background-color: #fff;
+  cursor: crosshair;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
+/* --- Frase e Curiosidade --- */
+.frase h2, .curiosidade h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.curiosidade p {
+  font-size: 1em;
+  background-color: var(--cor-fundo-curiosidade);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--cor-texto-principal);
+  margin-bottom: 10px;
+}
+.frase blockquote {
+  font-size: 1.1em;
+  font-style: italic;
+  margin: 10px 0;
+  background-color: rgba(0,0,0,0.03);
+  padding: 10px;
+  border-left: 5px solid var(--cor-borda-frase);
+  border-radius: 5px;
+}
+.frase cite {
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* MUDANÇA: Regra unificada para os botões de ação */
+.frase button, .curiosidade button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  color: var(--cor-btn-acao-texto);
+  background-color: var(--cor-btn-acao-fundo);
+  border: 2px solid var(--cor-btn-acao-borda);
+  box-shadow: 2px 2px 0px var(--cor-btn-acao-borda);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s, transform 0.1s ease;
+}
+.frase button:active, .curiosidade button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+.bloco frase {
+  background-color: var(--cor-continer-frase-fundo);
+}
+
+/* --- Seletor de Tema --- */
 #themeSwitcher {
   width: 70px;
   height: 70px;
@@ -309,28 +370,285 @@ body {
   padding: 0;
   transition: transform 0.2s ease, background-color 0.3s, border-color 0.3s;
 }
-
 #themeSwitcher:hover {
   transform: scale(1.1) rotate(15deg);
 }
-
-#themeSwitcher svg {
+/* MUDANÇA: Regra unificada para o ícone (SVG ou Imagem) */
+#themeSwitcher svg, #themeSwitcher img {
   width: 50px;
   height: 50px;
-  fill: white;
   transition: transform 0.3s ease-in-out;
 }
+#themeSwitcher svg {
+  fill: white;
+}
 
-.btnConselho {
+/* --- Botão flutuante --- */
+.find-me-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.dias-cabecalho, .dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.dias-grid span {
+  padding: 8px;
+  background-color: var(--cor-bloco-realce);
+  border-radius: 4px;
+}
+
+.dias-grid span.feriado {
   background-color: var(--cor-fundo-cartoon);
-  color: white;
-  border: 2px solid var(--cor-borda-cartoon);
-  font-family: 'Comic Neue', cursive;
-  font-size: 1rem;
   font-weight: bold;
+}
+
+/* clima */
+.bloco.clima {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bloco.clima h2 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* Estilo do container do seletor */
+.bloco.clima {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ font-family: 'Comic Neue', cursive;
+}
+
+.bloco.clima h2 {
+  text-align: center;
+  margin-bottom: 0;
+ font-family: 'Comic Neue', cursive;
+}
+.city-group{
+  font-family: 'Comic Neue', cursive;
+}
+/* Estilo do container do seletor */
+#weather-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Comic Neue', cursive;
+}
+
+#weather-selector label {
+  font-size: 0.9em;
+  font-weight: 500;
+  text-align: left;
+  opacity: 0.9;
+  font-family: 'Comic Neue', cursive;
+}
+
+#weather-selector select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--cor-borda-cartoon);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: 'Comic Neue', cursive;
+}
+
+#weather-selector select:focus {
+  border-color: var(--cor-btn-acao-borda);
+  font-family: 'Comic Neue', cursive;
+}
+
+/* O resto dos estilos de #weather-display podem continuar os mesmos */
+#weather-display { text-align: center; }
+#weather-display h3 { font-size: 1.5em; font-weight: bold; color: var(--cor-borda-cartoon); }
+#weather-display .main-info { display: flex; justify-content: center; align-items: center; gap: 5px; margin: 0; }
+#weather-display #weather-icon { width: 60px; height: 60px; }
+#weather-display .temperature { font-size: 3rem; font-weight: 700; }
+#weather-display .description { font-size: 1.1em; text-transform: capitalize; margin-bottom: 15px; }
+#weather-display .details { display: flex; justify-content: space-around; padding-top: 10px; border-top: 1px solid var(--cor-bloco-escuro); }
+#weather-display .detail-item strong { font-size: 0.9em; opacity: 0.9; display: block; }
+#weather-display .detail-item p { font-size: 1.1em; font-weight: bold; }
+
+/* Mensagens de erro/informativas */
+#weather-message {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  color: var(--cor-texto-principal);
+}
+#weather-message.error { background-color: rgba(216, 0, 12, 0.2); color: #d8000c; }
+
+.bloco.tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--cor-bloco-realce);
+}
+
+#todo-form {
+  display: flex;
+  gap: 10px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid var(--cor-btn-acao-borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--cor-bloco);
+  color: var(--cor-texto-principal);
+}
+
+#todo-form button {
+  padding: 8px 16px;
+  background-color: var(--cor-btn-acao-fundo);
+  color: var(--cor-btn-acao-texto);
+  border: 2px solid var(--cor-btn-acao-borda);
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 2px 2px 0px var(--cor-borda-cartoon);
+  font-weight: bold;
+  box-shadow: 2px 2px 0px var(--cor-btn-acao-borda);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s, transform 0.1s ease;
+}
+
+#todo-form button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+#todo-list li {
+  background-color: var(--cor-bloco);
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  color: var(--cor-texto-principal);
+}
+
+#todo-list li.completed {
+  text-decoration: line-through;
+  color: gray;
+  background-color: var(--cor-bloco-realce);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #e53935;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.bloco.eventos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--cor-bloco-realce);
+}
+
+#evento-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#evento-nome,
+#evento-data {
+  padding: 8px;
+  border: 2px solid var(--cor-btn-acao-borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 180px;
+  background-color: var(--cor-bloco);
+  color: var(--cor-texto-principal);
+}
+
+#evento-form button {
   padding: 8px 16px;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  background-color: var(--cor-btn-acao-fundo);
+  color: var(--cor-btn-acao-texto);
+  border: 2px solid var(--cor-btn-acao-borda);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 2px 2px 0px var(--cor-btn-acao-borda);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s, transform 0.1s ease;
+}
+
+#evento-form button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+#lista-eventos {
+  list-style: none;
+  padding: 0;
+}
+
+#lista-eventos li {
+  background-color: var(--cor-fundo-frase);
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--cor-texto-frase);
+}
+
+.calendario-topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.calendario-topo button {
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #e0e7ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#find-me-btn {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--cor-fundo-cartoon);
+  border: 3px solid var(--cor-borda-cartoon);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.3s, border-color 0.3s;
+  box-shadow: 3px 3px 0px var(--cor-borda-cartoon);
+  margin-top: 0;
 }

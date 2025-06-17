@@ -26,7 +26,18 @@
       <canvas id="quadroDeDesenho" width="400" height="350"></canvas>
     </section>
   
-    <section class="bloco mapa">Mapa</section>
+    <section class="bloco mapa">
+      <!-- WIDGET DE MAPA/LOCALIZAÇÃO -->
+      <h2>Minha Localização</h2>
+      <div id="location-data">
+        <p>Clique no botão para ver sua localização.</p>
+      </div>
+      <div id="map-container">
+        <!-- O Iframe do mapa será inserido aqui via JS -->
+      </div>
+      <button id="find-me-btn">Onde Estou?</button>
+      <!-- FIM DO WIDGET -->
+    </section>
     <section class="bloco tema">
     <h2>Tema<h2>
     <button id="themeSwitcher" title="Mudar Tema"></button>
@@ -46,18 +57,28 @@
       <button id="switchButton">Ver Digital</button>
     </section>
   
-    <section class="bloco tarefas">To-do list</section>
-      <!-- WIDGET LISTA DE TAREFAS -->
-      <h2>To-do list</h2>
-      <form id="todo-form">
-        <input type="text" id="todo-input" placeholder="Adicionar nova tarefa..." required autocomplete="off" />
-        <button type="submit">Adicionar</button>
-      </form>
-      <ul id="todo-list">
-        <!-- Tarefas serão inseridas aqui via JS -->
-      </ul>
-      <!-- FIM DO WIDGET -->
-    </section>
+    <section class="bloco tarefas">
+  <h2>To-do list</h2>
+  <form id="todo-form">
+    <input type="text" id="todo-input" placeholder="Adicionar nova tarefa..." required autocomplete="off" />
+    <button type="submit">Adicionar</button>
+  </form>
+  <ul id="todo-list">
+    <!-- Tarefas serão inseridas aqui via JS -->
+  </ul>
+</section>
+
+<section class="bloco eventos" id="eventos">
+  <h2>Eventos Marcados</h2>
+  <form id="evento-form">
+    <input type="text" id="evento-nome" placeholder="Nome do evento (ex: Aniversário)" required />
+    <input type="date" id="evento-data" required />
+    <button type="submit">Adicionar Evento</button>
+  </form>
+  <ul id="lista-eventos">
+    <!-- Eventos serão renderizados aqui -->
+  </ul>
+</section>
 
     <section class="bloco frase" id="fraseDia">
       <h2>Conselhos do dia</h2>
@@ -78,18 +99,86 @@
       <button id="novaCuriosidade">Nova curiosidade</button>
     </section>
     
-    <section class="bloco calendario">
-      <h2>JUNHO</h2>
-      <div class="dias">
+    <section class="bloco calendario" id="calendario">
+      <div class="calendario-topo">
+        <button id="mesAnterior">←</button>
+        <h2 id="mesAno">Carregando...</h2>
+        <button id="mesProximo">→</button>
+      </div>
+      <div class="dias-cabecalho">
         <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-        <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-        <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-        <span>29</span><span>30</span>
+      </div>
+      <div class="dias-grid" id="diasCalendario">
+        <!-- Dias serão inseridos via JavaScript -->
       </div>
     </section>
-    <section class="bloco clima">previsão do tempo</section>
+    
+    
+   <section class="bloco clima" id="weather-widget">
+      <h2>Previsão do Tempo</h2>
+      
+      <!-- Container com o menu de seleção expandido -->
+      <div id="weather-selector">
+          <label for="city-select">Escolha uma cidade:</label>
+          <select id="city-select">
+              <option value="">Selecione...</option>
+              
+              <!-- Cidades Brasileiras Populares -->
+               <div class="city-group">
+              <optgroup label="Brasil">
+                <option value="Sao Paulo">São Paulo</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="Brasilia">Brasília</option>
+                <option value="Salvador">Salvador</option>
+                <option value="Belo Horizonte">Belo Horizonte</option>
+                <option value="Parapua">Parapuã</option>
+                <option value="Sagres">Sagres</option>
+                <option value="Belem">Belém</option>
+                <option value="Porto Alegre">Porto Alegre</option>
+                <option value="Florianopolis">Florianópolis</option>
+                <option value="Osvaldo Cruz">Osvaldo Cruz</option>
+              </optgroup>
+
+              <!-- Cidades Internacionais Populares -->
+              <optgroup label="Mundo">
+                <option value="New York">Nova Iorque</option>
+                <option value="London">Londres</option>
+                <option value="Paris">Paris</option>
+                <option value="Tokyo">Tóquio</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Lisbon">Lisboa</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Rome">Roma</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Toronto">Toronto</option>
+              </optgroup>
+            </div>
+          </select>
+      </div>
+      
+      <!-- O container para os Resultados continua o mesmo -->
+      <div id="weather-display" class="hidden">
+          <h3 id="city-name"></h3>
+          <div class="main-info">
+              <img id="weather-icon" src="" alt="Ícone do Tempo">
+              <p class="temperature"><span id="temperature"></span>°C</p>
+          </div>
+          <p class="description" id="description"></p>
+          <div class="details">
+              <div class="detail-item">
+                  <strong>Umidade</strong>
+                  <p id="humidity"></p>
+              </div>
+              <div class="detail-item">
+                  <strong>Vento</strong>
+                  <p id="wind"></p>
+              </div>
+          </div>
+      </div>
+
+      <!-- O container para Mensagens continua o mesmo -->
+      <div id="weather-message" class="hidden"></div>
+    </section>
   </main>
 
   <!-- MUDANÇA AQUI: TODOS os scripts foram movidos para o final do body -->
@@ -102,5 +191,9 @@
   <script src="tarefas.js"></script>
   <script src="tempo.js"></script>
   <script src="contador.js"></script>
+  <script src="previsao.js"></script>
+  <script src="calendario.js"></script>
+  <script src="eventos.js"></script>
+
 </body>
 </html>
